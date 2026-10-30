@@ -8,33 +8,29 @@
 
 ## 📑 목차 (Table of Contents)
 
-1. [Custom Voice 온보딩 전체 흐름 한눈에 보기](#1-custom-voice-온보딩-전체-흐름-한눈에-보기)
-2. [Step 1: 사전 준비 — 필수 오디오 2종 규격 및 3대 자동 검증 기준 이해하기](#2-step-1-사전-준비--필수-오디오-2종-규격-및-3대-자동-검증-기준-이해하기)
+- [Custom Voice 온보딩 전체 흐름 한눈에 보기](#-custom-voice-온보딩-전체-흐름-한눈에-보기)
+1. [Step 1: 사전 준비 — 필수 오디오 2종 규격 및 3대 자동 검증 기준 이해하기](#1-step-1-사전-준비--필수-오디오-2종-규격-및-3대-자동-검증-기준-이해하기)
    - [1.1. 제출해야 하는 오디오 파일 2종 요약](#11-제출해야-하는-오디오-파일-2종-요약)
    - [1.2. 저장 시 수행되는 3대 실시간 생체·보안 검증 기준](#12-저장-시-수행되는-3대-실시간-생체보안-검증-기준)
-3. [Step 2: 오디오 2종 녹음하기 (동의서 문구 + 표준 샘플 대본)](#3-step-2-오디오-2종-녹음하기-동의서-문구--표준-샘플-대본)
+2. [Step 2: 오디오 2종 녹음하기 (동의서 문구 + 표준 샘플 대본)](#2-step-2-오디오-2종-녹음하기-동의서-문구--표준-샘플-대본)
    - [2.1. 파일 ①: 음성 동의서 (`Consent audio` — 8~12초 필수 낭독 문구)](#21-파일--음성-동의서-consent-audio--812초-필수-낭독-문구)
    - [2.2. 파일 ②: 참조 음성 샘플 (`Voice sample` — 20~60초 표준 대본 3선)](#22-파일--참조-음성-샘플-voice-sample--2060초-표준-대본-3선)
-   - [2.3. 고품질 음성 복제를 위한 녹음 환경·마이크 세팅 및 5단계 체크리스트](#23-고품질-음성-복제를-위한-녹음-환경마이크-세팅-및-5단계-체크리스트)
-4. [Step 3: CX Agent Studio 웹 콘솔에서 대상 언어 및 지원 모델 설정하기](#4-step-3-cx-agent-studio-웹-콘솔에서-대상-언어-및-지원-모델-설정하기)
-5. [Step 4: `Create custom voice` 화면에서 Custom Voice 생성하기](#5-step-4-create-custom-voice-화면에서-custom-voice-생성하기)
-   - [4.1. `Create custom voice` 패널 열기 및 보이스 이름 지정](#41-create-custom-voice-패널-열기-및-보이스-이름-지정)
-   - [4.2. 오디오 2종 등록 (`Upload file` 파일 업로드 vs. `Record audio` 브라우저 녹음)](#42-오디오-2종-등록-upload-file-파일-업로드-vs-record-audio-브라우저-녹음)
-   - [4.3. 억양 및 발화 스타일 지시문(`Voice instruction`) 설정하기](#43-억양-및-발화-스타일-지시문voice-instruction-설정하기)
-   - [4.4. 산업별·상황별 `Voice instruction` 프롬프트 템플릿](#44-산업별상황별-voice-instruction-프롬프트-템플릿)
-   - [4.5. 생성 완료(`Create` / `Save`) 및 미리듣기(Preview) 확인](#45-생성-완료create--save-및-미리듣기preview-확인)
-6. [Step 5: 대상 언어에 Custom Voice 매핑 및 통화 행동 최적화하기](#6-step-5-대상-언어에-custom-voice-매핑-및-통화-행동-최적화하기)
+3. [Step 3: CX Agent Studio 웹 콘솔에서 대상 언어 및 지원 모델 설정하기](#3-step-3-cx-agent-studio-웹-콘솔에서-대상-언어-및-지원-모델-설정하기)
+4. [Step 4: `Create custom voice` 화면에서 Custom Voice 생성하기](#4-step-4-create-custom-voice-화면에서-custom-voice-생성하기)
+   - [4.1. 억양 및 발화 스타일 지시문(`Voice instruction`) 설정하기](#41-억양-및-발화-스타일-지시문voice-instruction-설정하기)
+   - [4.2. 산업별·상황별 `Voice instruction` 프롬프트 템플릿](#42-산업별상황별-voice-instruction-프롬프트-템플릿)
+5. [Step 5: 대상 언어에 Custom Voice 매핑 및 통화 행동 최적화하기](#5-step-5-대상-언어에-custom-voice-매핑-및-통화-행동-최적화하기)
    - [5.1. 대상 언어에 생성한 Custom Voice 연결하기](#51-대상-언어에-생성한-custom-voice-연결하기)
    - [5.2. 발화 속도(Tempo), 배경 효과음, 끼어들기(Barge-in), 묵음 대기 설정](#52-발화-속도tempo-배경-효과음-끼어들기barge-in-묵음-대기-설정)
-7. [Step 6: 시뮬레이터(Simulator) 실시간 음성 테스트 및 검증](#7-step-6-시뮬레이터simulator-실시간-음성-테스트-및-검증)
-8. [부록 A: CES v1 REST API를 활용한 Custom Voice 자동화 및 운영 주의사항](#8-부록-a-ces-v1-rest-api를-활용한-custom-voice-자동화-및-운영-주의사항)
+6. [Step 6: 시뮬레이터(Simulator) 실시간 음성 테스트 및 검증](#6-step-6-시뮬레이터simulator-실시간-음성-테스트-및-검증)
+7. [부록 A: CES v1 REST API를 활용한 Custom Voice 자동화 및 운영 주의사항](#7-부록-a-ces-v1-rest-api를-활용한-custom-voice-자동화-및-운영-주의사항)
    - [A.1. 아키텍처별 내부 동작 및 5일 주기 자동 갱신(Re-mint) 주의사항](#a1-아키텍처별-내부-동작-및-5일-주기-자동-갱신re-mint-주의사항)
    - [A.2. Cloud Storage(GCS) 권한 부여 및 REST API (`GET` / `PATCH`) 예제](#a2-cloud-storagegcs-권한-부여-및-rest-api-get--patch-예제)
-9. [부록 B: 자주 묻는 질문 및 에러 해결 가이드 (Troubleshooting & FAQ)](#9-부록-b-자주-묻는-질문-및-에러-해결-가이드-troubleshooting--faq)
+8. [부록 B: 자주 묻는 질문 및 에러 해결 가이드 (Troubleshooting & FAQ)](#8-부록-b-자주-묻는-질문-및-에러-해결-가이드-troubleshooting--faq)
 
 ---
 
-## 1. Custom Voice 온보딩 전체 흐름 한눈에 보기
+## 📌 Custom Voice 온보딩 전체 흐름 한눈에 보기
 
 **CX Agent Studio Custom Voice (셀프서비스 UI)** 는 실제 성우나 상담원이 녹음한 **① 동의서 오디오(8~12초)** 와 **② 참조 음성 샘플(20~60초)** 두 개의 파일만으로 브랜드 고유의 AI 상담원 목소리를 즉시 생성하고 원하는 언어(한국어, 영어, 일본어 등 30개 이상의 다국어 로케일)에 적용하는 기능입니다.
 
@@ -64,9 +60,10 @@ flowchart LR
 
     S12 ==> S34 ==> S56
 ```
+
 ---
 
-## 2. Step 1: 사전 준비 — 필수 오디오 2종 규격 및 3대 자동 검증 기준 이해하기
+## 1. Step 1: 사전 준비 — 필수 오디오 2종 규격 및 3대 자동 검증 기준 이해하기
 
 ### 1.1. 제출해야 하는 오디오 파일 2종 요약
 
@@ -96,7 +93,7 @@ flowchart LR
 
 ---
 
-## 3. Step 2: 오디오 2종 녹음하기 (동의서 문구 + 표준 샘플 대본)
+## 2. Step 2: 오디오 2종 녹음하기 (동의서 문구 + 표준 샘플 대본)
 
 ### 2.1. 파일 ①: 음성 동의서 (`Consent audio` — 8~12초 필수 낭독 문구)
 
@@ -106,7 +103,6 @@ flowchart LR
 ```text
 "저는 이 음성의 소유자이며, Google Cloud를 사용하여 제 음성의 합성 모델을 생성하는데 동의했습니다."
 ```
-
 
 <details>
 <summary>💡 <b>(참고) 영문 또는 Chirp 3 모델용 공식 동의 문구 보기</b></summary>
@@ -164,7 +160,6 @@ AI 모델이 화자의 성문 프로필을 가장 풍부하고 자연스럽게 �
 
 ---
 
-
 #### ✅ 녹음 전후 5단계 빠른 점검표 (Quick Recording Checklist)
 
 | 단계 | 점검 항목 | 확인 기준 |
@@ -177,7 +172,7 @@ AI 모델이 화자의 성문 프로필을 가장 풍부하고 자연스럽게 �
 
 ---
 
-## 4. Step 3: CX Agent Studio 웹 콘솔에서 대상 언어 및 지원 모델 설정하기
+## 3. Step 3: CX Agent Studio 웹 콘솔에서 대상 언어 및 지원 모델 설정하기
 
 오디오 파일 준비가 끝났다면 [CX Agent Studio 콘솔](https://ces.cloud.google.com/)에 접속하여 에이전트가 커스텀 보이스를 사용할 수 있도록 기본 환경을 먼저 확인합니다.
 
@@ -195,48 +190,25 @@ AI 모델이 화자의 성문 프로필을 가장 풍부하고 자연스럽게 �
     ![alt text](model_select.png)
    - **지원 모델 목록**:
      - **Composite 모델 (권장)**: `gemini-composite-v1`, `gemini-composite-v2`
+
 ---
 
-## 5. Step 4: `Create custom voice` 화면에서 Custom Voice 생성하기
+## 4. Step 4: `Create custom voice` 화면에서 Custom Voice 생성하기
 
 이제 콘솔 UI에서 준비한 오디오 2종을 등록하고 커스텀 보이스를 생성합니다. 전체 진행 순서는 다음과 같습니다:
 
-1. **`Create custom voice` 패널 열기 (4.1절)**: `Settings (⚙️)` > `Basic` > `Behavior` > `Voice` 영역에서 **`Custom voices`** 버튼 또는 **대상 언어 행**을 클릭하여 보이스 생성 패널을 엽니다.
-2. **보이스 이름 및 오디오 2종 등록 (4.2절)**: 보이스 식별 이름(`Name`, 예: `brand-voice-01`)을 입력하고, **`Upload file` (파일 업로드)** 또는 **`Record audio` (직접 녹음)** 방식으로 **참조 음성 샘플(`Voice sample`, 20~60초)** 과 **음성 동의서(`Consent audio`, 8~12초)** 를 등록합니다.
-3. **억양 및 발화 스타일 지시문(`Voice instruction`) 모드 선택 (4.3 & 4.4절)**: **`Generate instructions`** (AI 자동 생성 — 기본값), **`No instructions`** (원본 그대로 복제), **`Add instructions`** (억양/톤 지시문 직접 입력) 중 하나를 선택합니다.
-4. **생성 완료(`Create`) 및 미리듣기(`▶`) 확인 (4.5절)**: 프로젝트 내 `<projectId>-ces-voice-samples` 버킷에 오디오가 자동 저장되고, 3대 실시간 생체·보안 검증을 통과하면 커스텀 보이스 생성이 완료됩니다.
+1. **`Create custom voice` 패널 열기**: `Settings (⚙️)` > `Basic` > `Behavior` > `Voice` 영역에서 **`Custom voices`** 버튼 또는 **대상 언어 행**을 클릭하여 보이스 생성 패널을 엽니다.
+  ![alt text](create_custom_voice.png)
+2. **보이스 이름 및 오디오 2종 등록**: 보이스 식별 이름(`Name`, 예: `brand-voice-01`)을 입력하고, **`Upload file` (파일 업로드)** 또는 **`Record audio` (직접 녹음)** 방식으로 **참조 음성 샘플(`Voice sample`, 20~60초)** 과 **음성 동의서(`Consent audio`, 8~12초)** 를 등록합니다.
+3. **억양 및 발화 스타일 지시문(`Voice instruction`) 모드 선택 (4.1 & 4.2절 참고)**: **`Generate instructions`** (AI 자동 생성 — 기본값), **`No instructions`** (원본 그대로 복제), **`Add instructions`** (억양/톤 지시문 직접 입력) 중 하나를 선택합니다.
+예시는 **`Add instructions`** 진행합니다.
+  ![alt text](instruction_select.png)
+4. **생성 완료(`Create`) 및 미리듣기(`▶`) 확인**: 프로젝트 내 `<projectId>-ces-voice-samples` 버킷에 오디오가 자동 저장되고, 3대 실시간 생체·보안 검증을 통과하면 커스텀 보이스 생성이 완료됩니다.
+  ![alt text](create_custom_voice_done.png)
 
 ---
 
-### 4.1. `Create custom voice` 패널 열기 및 보이스 이름 지정
-
-1. **Agent application settings (⚙️)** 패널의 **`Basic`** 탭에서 아래로 스크롤하여 **`Behavior`** 섹션 내 **`Voice`** 영역으로 이동합니다.
-2. 아래 두 가지 경로 중 하나로 **`Create custom voice`** 사이드 패널을 엽니다:
-   - **경로 ①**: `Voice` 영역의 **`Custom voices`** 버튼을 클릭 → 우측 `Custom voices` 목록 패널에서 **`Create custom voice`** 버튼 클릭
-   - **경로 ②**: `Voice` 요약 테이블에서 커스텀 보이스를 적용할 **언어 행(예: `Korean (ko-KR)`, `English (en-US)` 등)** 을 클릭 → 우측 `Voice settings` 패널에서 상단 토글을 **`Built-in`** 에서 **`Custom`** 으로 변경 → 드롭다운에서 **`Create new`** 클릭
-3. **`Name` (보이스 이름) 입력**:
-   - 생성할 커스텀 보이스의 식별 이름(예: `brand-voice-01`, `cs-counselor-voice`)을 입력합니다.
-
----
-
-### 4.2. 오디오 2종 등록 (`Upload file` 파일 업로드 vs. `Record audio` 브라우저 녹음)
-
-**`Create custom voice`** 패널에는 **`Voice sample` (참조 음성 샘플)** 과 **`Consent audio` (음성 동의서)** 두 개의 오디오 등록 섹션이 있으며, 각각 상단 토글을 통해 **파일 업로드** 또는 **브라우저 마이크 직접 녹음** 방식을 선택할 수 있습니다.
-
-1. **방식 A: `Upload file` (Step 2에서 녹음한 파일 업로드 — 권장)**
-   - **`Voice sample`** 섹션에서 **`Upload file`** 을 선택하고, Step 2에서 녹음한 **참조 음성 샘플(`speaker_02_sample.wav`, 20~60초, 10MB 이하)** 을 업로드합니다.
-   - **`Consent audio`** 섹션에서 **`Upload file`** 을 선택하고, 동일한 화자가 녹음한 **동의서 오디오(`speaker_01_consent.wav`, 8~12초, 10MB 이하)** 를 업로드합니다.
-   - 업로드된 각 파일 행 우측의 **재생 버튼(`▶`)** 을 클릭해 소리가 정상인지 들어볼 수 있으며, 잘못 선택한 경우 **휴지통(삭제) 아이콘**을 눌러 교체할 수 있습니다.
-2. **방식 B: `Record audio` (콘솔 화면에서 마이크로 바로 녹음)**
-   - 별도 녹음 파일이 없다면 **`Record audio`** 탭을 눌러 브라우저에서 외장 마이크로 직접 녹음할 수 있습니다.
-   - 녹음 버튼을 누르면 **실시간 오디오 파형(Waveform visualizer)** 과 **경과 시간 타이머**가 동작하며, 녹음 완료 후 재생 버튼(`▶`)으로 바로 들어보거나 재녹음할 수 있습니다.
-3. **법적 동의 체크박스(Disclaimer) 체크**:
-   - 화자로부터 음성 복제에 대한 적법한 동의를 받았음을 확인하는 하단 동의 체크박스에 체크합니다.
-   - *(참고: 파일 업로드 시 콘솔이 프로젝트 내 전용 버킷인 `<projectId>-ces-voice-samples`를 자동 생성하여 저장하므로 별도의 GCS 버킷 설정이 필요 없습니다.)*
-
----
-
-### 4.3. 억양 및 발화 스타일 지시문(`Voice instruction`) 설정하기
+### 4.1. 억양 및 발화 스타일 지시문(`Voice instruction`) 설정하기
 
 오디오 등록 아래의 **`Voice instruction`** 섹션에는 3개의 세그먼트 버튼이 제공됩니다. 원하는 방식을 선택하세요:
 
@@ -248,7 +220,7 @@ AI 모델이 화자의 성문 프로필을 가장 풍부하고 자연스럽게 �
 
 ---
 
-### 4.4. 산업별·상황별 `Voice instruction` 프롬프트 템플릿
+### 4.2. 산업별·상황별 `Voice instruction` 프롬프트 템플릿
 
 **`Add instructions`** 모드를 선택했거나 생성 후 편집(Edit)할 때, 아래 프롬프트 중 서비스 성격에 맞는 문구를 복사하여 입력창에 붙여넣으세요:
 
@@ -261,20 +233,12 @@ AI 모델이 화자의 성문 프로필을 가장 풍부하고 자연스럽게 �
 
 ---
 
-### 4.5. 생성 완료(`Create` / `Save`) 및 미리듣기(Preview) 확인
-
-1. 패널 하단의 **`Create` (또는 `Save`)** 버튼을 클릭합니다.
-2. 백엔드에서 실시간으로 3대 검증(동의 문구 전사 일치, 화자 신원 일치, SynthID 육성 확인)과 보이스 복제 작업이 진행되며, 완료 시 **`"Custom voice created successfully."`** 알림과 함께 `Custom voices` 목록에 보이스가 추가됩니다.
-3. 목록에 추가된 커스텀 보이스 행 우측의 **재생 아이콘(`▶`)** 을 클릭하면, 합성된 미리듣기 오디오를 즉시 들어볼 수 있습니다.
-
----
-
-## 6. Step 5: 대상 언어에 Custom Voice 매핑 및 통화 행동 최적화하기
+## 5. Step 5: 대상 언어에 Custom Voice 매핑 및 통화 행동 최적화하기
 
 커스텀 보이스 생성을 마쳤다면, 에이전트가 대화 시 해당 커스텀 보이스로 말하도록 연결하고 통화 옵션을 다듬습니다.
 
 ### 5.1. 대상 언어에 생성한 Custom Voice 연결하기
-
+  ![alt text](language_setting.png)
 1. **Agent application settings (⚙️)** > **`Basic`** 탭 > **`Behavior`** 섹션의 **`Voice`** 요약 테이블에서 커스텀 보이스를 적용할 **언어 행(예: `Korean (ko-KR)`, `English (en-US)` 등)** 을 클릭합니다.
 2. 우측에 열리는 **Voice settings** 패널에서 상단 음성 유형 토글을 **`Built-in`** 에서 **`Custom`** 으로 전환합니다.
 3. **Custom voice** 드롭다운 메뉴를 열어 Step 4에서 생성한 커스텀 보이스(예: `brand-voice-01`)를 선택합니다.
@@ -298,7 +262,7 @@ AI 모델이 화자의 성문 프로필을 가장 풍부하고 자연스럽게 �
 
 ---
 
-## 7. Step 6: 시뮬레이터(Simulator) 실시간 음성 테스트 및 검증
+## 6. Step 6: 시뮬레이터(Simulator) 실시간 음성 테스트 및 검증
 
 모든 설정을 저장했다면 에이전트 빌더 화면 우측의 **Preview / Simulator** 에서 실제 음성 대화를 테스트합니다.
 
@@ -313,7 +277,7 @@ AI 모델이 화자의 성문 프로필을 가장 풍부하고 자연스럽게 �
 
 ---
 
-## 8. 부록 A: CES v1 REST API를 활용한 Custom Voice 자동화 및 운영 주의사항
+## 7. 부록 A: CES v1 REST API를 활용한 Custom Voice 자동화 및 운영 주의사항
 
 ### A.1. 아키텍처별 내부 동작 및 5일 주기 자동 갱신(Re-mint) 주의사항
 
@@ -408,13 +372,13 @@ curl -s -X PATCH \
 
 ---
 
-## 9. 부록 B: 자주 묻는 질문 및 에러 해결 가이드 (Troubleshooting & FAQ)
+## 8. 부록 B: 자주 묻는 질문 및 에러 해결 가이드 (Troubleshooting & FAQ)
 
 | 증상 및 에러 메시지 | 원인 분석 | 해결 방법 |
 | :--- | :--- | :--- |
 | **`Voice mismatch detected. The speaker in the consent audio does not match the speaker in the voice sample.`** | 동의서 오디오(`Consent audio`)와 샘플 오디오(`Voice sample`)의 화자가 다르거나, 서로 다른 마이크·공간·볼륨으로 녹음되어 성문 임베딩이 불일치함 | 반드시 **동일한 화자가 한 자리에서 같은 마이크와 같은 거리(15~30cm)를 유지하며 두 파일을 연속으로 녹음**하여 다시 업로드하세요. |
 | **`INVALID_ARGUMENT: Consent flow failed` 또는 동의서 문구 검증 실패** | • 동의서 문구를 읽을 때 단어를 바꿨거나 앞뒤에 인사말을 붙여 STT 단어 오류율(WER)이 15%를 초과함<br/>• 모델/리전 설정과 다른 동의 문구를 사용한 경우 | 1. [2.1절의 공식 동의 문구](#21-파일--음성-동의서-consent-audio--812초-필수-낭독-문구)를 앞뒤 인사말 없이 정확히 낭독했는지 확인하세요.<br/>2. 만약 `Chirp3-HD` 모델이거나 `us` 리전 설정 영향인 경우, [2.1절 참고란](#21-파일--음성-동의서-consent-audio--812초-필수-낭독-문구)에 안내된 Chirp 3 동의 문구 또는 영문 동의 문구 파일로 업로드해 보세요. |
-| **콘솔의 `Voice` 설정에서 `Custom` 토글이 비활성화(클릭 불가)되어 있음** | 현재 에이전트에 설정된 모델(예: `gemini-2.5-flash-001` 또는 `gemini-3.5-flash` 등 텍스트 전용 모델)이 보이스 클로닝을 지원하지 않음 | [Step 3](#4-step-3-cx-agent-studio-웹-콘솔에서-대상-언어-및-지원-모델-설정하기)을 참고하여 에이전트 모델을 `Composite V1/V2` 또는 Native Audio 모델로 변경하거나, 언어별 TTS 모델이 `gemini-3.1-flash-tts-preview` / `Chirp3-HD`인지 확인하세요. |
+| **콘솔의 `Voice` 설정에서 `Custom` 토글이 비활성화(클릭 불가)되어 있음** | 현재 에이전트에 설정된 모델(예: `gemini-2.5-flash-001` 또는 `gemini-3.5-flash` 등 텍스트 전용 모델)이 보이스 클로닝을 지원하지 않음 | [Step 3](#3-step-3-cx-agent-studio-웹-콘솔에서-대상-언어-및-지원-모델-설정하기)을 참고하여 에이전트 모델을 `Composite V1/V2` 또는 Native Audio 모델로 변경하거나, 언어별 TTS 모델이 `gemini-3.1-flash-tts-preview` / `Chirp3-HD`인지 확인하세요. |
 | **외부 TTS나 합성 오디오를 올렸더니 업로드가 거부됨** | DeepMind SynthID / SSD 기반의 합성 음성 탐지기가 AI 생성 오디오임을 감지하여 차단함 | Custom Voice UI는 **실제 사람의 육성 + 본인 음성 동의서** 전용입니다. 반드시 실제 성우 또는 상담원의 육성으로 녹음한 파일을 업로드하세요. |
 | **오디오 업로드 시 무음(Silence) 비율 초과 또는 길이 오류 발생** | 샘플 오디오 내 무음 구간이 전체의 20%를 초과했거나, 파일 길이가 20~60초 범위를 벗어남 | 대본을 읽을 때 문장 사이 쉼(Pause)을 1초 이내로 자연스럽게 유지하고, 녹음 시작 전과 끝난 후의 빈 무음 구간을 잘라내어 30~40초 분량으로 업로드하세요. |
 | **`LOW_AUDIO_LEVEL` 경고가 뜨거나 합성된 음성에 화이트 노이즈가 섞임** | 녹음 시 마이크 입력 볼륨이 너무 작아(`-20 dB` 이하) 서버 정규화 과정에서 배경 노이즈가 함께 증폭됨 | 마이크 거리를 입에서 15~30cm로 조정하고, 녹음 피크 레벨이 **`-12 dB ~ -6 dB`** 사이에 오도록 마이크 입력 게인을 높여 다시 녹음하세요. |
