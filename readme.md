@@ -64,13 +64,6 @@ flowchart LR
 
     S12 ==> S34 ==> S56
 ```
-
-### ✨ 시작 전 꼭 알아두어야 할 핵심 사항 4가지
-1. **별도 Allowlist 승인 불필요 (100% 셀프서비스 GA)**: 콘솔에서 오디오 파일을 업로드하면 실시간 검증 후 그 자리에서 바로 보이스가 생성됩니다.
-2. **전용 Cloud Storage 버킷 자동 생성**: 콘솔에서 파일을 업로드하거나 녹음하면 프로젝트 내에 **`<projectId>-ces-voice-samples`** 버킷이 자동으로 프로비저닝되어 저장되므로, 별도로 스토리지 버킷을 수동 생성할 필요가 없습니다.
-3. **모든 에이전트 아키텍처 및 다국어 지원**: 생성된 커스텀 보이스는 **Rev23 A2A**, **Composite V1**, **Composite V2** 등 모든 음성 아키텍처와 다양한 언어 로케일(`ko-KR`, `en-US`, `ja-JP` 등)에서 즉시 작동합니다.
-4. **억양·톤앤매너 자연어 제어**: `Voice instruction` 프롬프트에 *"따뜻하고 친절한 상담원 톤"*, *"차분하고 신뢰감 있는 전문가 억양"* 과 같이 자연어 지시문을 입력하여 발화 스타일과 억양을 정교하게 다듬을 수 있습니다.
-
 ---
 
 ## 2. Step 1: 사전 준비 — 필수 오디오 2종 규격 및 3대 자동 검증 기준 이해하기
@@ -111,9 +104,9 @@ flowchart LR
 
 #### 📌 공식 음성 동의 문구 (Gemini TTS / Voices API 기준)
 ```text
-"저는 이 음성의 소유자이며, Google Cloud를 사용하여 제 음성의 합성 모델을 생성하는 데 동의했습니다."
+"저는 이 음성의 소유자이며, Google Cloud를 사용하여 제 음성의 합성 모델을 생성하는데 동의했습니다."
 ```
-*(발음 팁: `"Google Cloud를"` 부분은 자연스럽게 `"구글 클라우드를"`로 발음하시면 됩니다.)*
+
 
 <details>
 <summary>💡 <b>(참고) 영문 또는 Chirp 3 모델용 공식 동의 문구 보기</b></summary>
@@ -171,20 +164,6 @@ AI 모델이 화자의 성문 프로필을 가장 풍부하고 자연스럽게 �
 
 ---
 
-### 2.3. 고품질 음성 복제를 위한 녹음 환경·마이크 세팅 및 5단계 체크리스트
-
-1. **공간 선택 (잔향/울림 및 배경 소음 완벽 차단)**
-   - 흡음재가 있는 소규모 녹음 부스나 회의실, 또는 카펫과 커튼이 있는 조용한 방에서 녹음하세요.
-   - 유리벽이나 딱딱한 바닥이 있는 넓은 회의실의 **울림(Echo / Reverberation)** 은 발음의 명료도를 떨어뜨리므로 반드시 피해야 합니다.
-   - 에어컨, 히터, 공기청정기(HVAC)를 끄고, 휴대폰 진동 및 종이 넘기는 소리가 들어가지 않도록 주의하세요.
-2. **마이크 세팅 및 파열음(Plosive) 방지 기법**
-   - 노트북 내장 마이크(본체 팬 소음 유입) 대신 **전용 USB 콘덴서/다이내믹 마이크 또는 고품질 유선 헤드셋**을 사용하세요.
-   - 입에서 **15 ~ 30 cm (6 ~ 12인치)** 거리를 유지하세요.
-   - 거센소리·된소리(`ㅍ`, `ㅌ`, `ㅋ`, `p`, `t`, `k`) 발화 시 입김이 마이크를 때리는 파열음(Breath pop)이 생기지 않도록, 마이크를 입 정면에서 **약 45도 각도로 살짝 비켜서** 배치하거나 팝 필터(Pop filter)를 사용하세요.
-   - 오디오 입력 피크 레벨이 **`-12 dB` ~ `-6 dB`** 사이에 오도록 마이크 볼륨을 조절하세요 (`0 dB` 클리핑 절대 금지).
-3. **발성 톤앤매너: "Vocal Smile (미소 띤 목소리)"**
-   - 과장된 연기(지나치게 하이톤이거나 연극적인 감정 표현)는 피하고, 실제 우수 상담원이 고객을 맞이할 때처럼 **살짝 미소를 머금은 따뜻하고 안정적인 평상시 상담 톤**으로 일정하게 읽으세요.
-   - 문장과 문장 사이에 너무 길게(2초 이상) 쉬지 말고 자연스러운 호흡으로 이어 읽으세요 (전체 무음 구간이 20%를 넘으면 업로드가 거부됩니다).
 
 #### ✅ 녹음 전후 5단계 빠른 점검표 (Quick Recording Checklist)
 
@@ -193,7 +172,7 @@ AI 모델이 화자의 성문 프로필을 가장 풍부하고 자연스럽게 �
 | **Step 1. 공간 점검** | 조용한 방, 문 닫기, 에어컨/공조기 끄기, 울림 확인 | 손뼉을 한 번 쳤을 때 메아리나 금속성 울림이 남지 않는지 확인 |
 | **Step 2. 마이크 점검** | 외장 마이크 연결, 입에서 15~30cm 거리 및 45도 각도 배치 | 5초 테스트 녹음 후 헤드폰으로 팬 소음(Hum)이나 숨소리 파열음이 없는지 확인 |
 | **Step 3. 파일 ① (동의서)** | [2.1절의 공식 동의 문구](#21-파일--음성-동의서-consent-audio--812초-필수-낭독-문구)를 단어 가감 없이 그대로 낭독 | **8~12초** 분량, 앞뒤 인사말 없이 동의 문구만 또렷하게 녹음되었는지 확인 |
-| **Step 4. 파일 ② (샘플)** | 같은 자리·같은 마이크로 [2.2절의 표준 대본](#22-파일--참조-음성-샘플-voice-sample--2060초-표준-대본-3선) 낭독 | **20~60초 (약 35~40초)** 분량, 긴 침묵 없이 일정한 볼륨과 템포인지 확인 |
+| **Step 4. 파일 ② (샘플)** | 같은 자리·같은 마이크로 [2.2절의 표준 대본](#22-파일--참조-음성-샘플-voice-sample--2060초-표준-대본-3선) 낭독 | **20-60초** 분량, 긴 침묵 없이 일정한 볼륨과 템포인지 확인 |
 | **Step 5. 최종 검토** | 두 파일 모두 클리핑 없음(`-12dB ~ -6dB`), 노이즈 없음 확인 | `speaker_01_consent.wav`, `speaker_02_sample.wav`로 각각 저장 |
 
 ---
@@ -205,30 +184,27 @@ AI 모델이 화자의 성문 프로필을 가장 풍부하고 자연스럽게 �
 1. **[CX Agent Studio 콘솔](https://ces.cloud.google.com/) 접속 및 에이전트 열기**
    - 상단에서 대상 **GCP 프로젝트(Project)** 와 **리전(Location)** 을 선택하고, 음성을 적용할 **에이전트 애플리케이션(Agent Application)** 을 클릭합니다.
 2. **에이전트 설정(⚙️ Settings) 열기**
+![alt text](settings_panel.png)
    - 빌더 화면 우측 상단의 **톱니바퀴 아이콘(⚙️ Settings)** 을 클릭하여 **Agent application settings** 패널을 엽니다.
 3. **대상 언어 활성화 확인 (`Language controls`)**
    - **`Basic`** 탭 > **`Interactions`** 섹션 > **`Language controls`** 로 이동합니다.
    - **Default language(기본 언어)** 또는 **Additional languages(추가 언어)** 에 커스텀 보이스를 적용할 대상 언어(예: `Korean (ko-KR)`, `English (en-US)` 등)가 추가되어 있는지 확인합니다. (없다면 추가 후 저장합니다.)
+   ![alt text](language_controls.png)
 4. **보이스 클로닝 지원 모델 확인 (`Model`)**
    - 콘솔에서 `Custom` 보이스 기능은 보이스 클로닝을 지원하는 음성/에이전트 모델이 선택된 경우에만 활성화됩니다.
+    ![alt text](model_select.png)
    - **지원 모델 목록**:
      - **Composite 모델 (권장)**: `gemini-composite-v1`, `gemini-composite-v2`
-     - **개별 TTS 모델**: `gemini-3.1-flash-tts-preview`, `gemini-3.1-flash-lite-tts-preview`, `Chirp3-HD`
-     - **Native Audio (A2A) / Live 모델**: `gemini-2.5-flash-native-audio-preview`, `gemini-3.0-flash-native-audio-preview`, `gemini-3-flash-native-audio`, `gemini-3.1-flash-live` 등
-   - *(주의: 텍스트 전용 기본 모델인 `gemini-2.5-flash-001`이나 `gemini-3.5-flash`가 설정되어 있으면 `Custom` 보이스 옵션이 비활성화되므로 반드시 위 지원 모델 중 하나로 설정하세요.)*
-
 ---
 
 ## 5. Step 4: `Create custom voice` 화면에서 Custom Voice 생성하기
 
-이제 콘솔 UI에서 준비한 오디오 2종을 등록하고 커스텀 보이스를 생성합니다.
+이제 콘솔 UI에서 준비한 오디오 2종을 등록하고 커스텀 보이스를 생성합니다. 전체 진행 순서는 다음과 같습니다:
 
-```mermaid
-flowchart TD
-    A["4.1. Create custom voice 패널 열기\nSettings (⚙️) > Basic > Behavior > Voice\n> 'Custom voices' 또는 대상 언어 행 클릭"] --> B["4.2. 보이스 이름 및 오디오 2종 등록\n• Name 입력 (예: brand-voice-01)\n• 'Upload file'(파일 업로드) 또는 'Record audio'(직접 녹음)\n• Voice sample (20~60초) + Consent audio (8~12초) 등록"]
-    B --> C["4.3 & 4.4. Voice instruction 모드 선택\n• 'Generate instructions' (AI 자동 생성 — 기본값)\n• 'No instructions' (원본 그대로 복제)\n• 'Add instructions' (억양/톤 지시문 직접 입력)"]
-    C --> D["4.5. Create 클릭 및 미리듣기(▶) 확인\n• <projectId>-ces-voice-samples 버킷 자동 저장\n• 3대 생체/보안 검증 통과 후 보이스 생성 완료"]
-```
+1. **`Create custom voice` 패널 열기 (4.1절)**: `Settings (⚙️)` > `Basic` > `Behavior` > `Voice` 영역에서 **`Custom voices`** 버튼 또는 **대상 언어 행**을 클릭하여 보이스 생성 패널을 엽니다.
+2. **보이스 이름 및 오디오 2종 등록 (4.2절)**: 보이스 식별 이름(`Name`, 예: `brand-voice-01`)을 입력하고, **`Upload file` (파일 업로드)** 또는 **`Record audio` (직접 녹음)** 방식으로 **참조 음성 샘플(`Voice sample`, 20~60초)** 과 **음성 동의서(`Consent audio`, 8~12초)** 를 등록합니다.
+3. **억양 및 발화 스타일 지시문(`Voice instruction`) 모드 선택 (4.3 & 4.4절)**: **`Generate instructions`** (AI 자동 생성 — 기본값), **`No instructions`** (원본 그대로 복제), **`Add instructions`** (억양/톤 지시문 직접 입력) 중 하나를 선택합니다.
+4. **생성 완료(`Create`) 및 미리듣기(`▶`) 확인 (4.5절)**: 프로젝트 내 `<projectId>-ces-voice-samples` 버킷에 오디오가 자동 저장되고, 3대 실시간 생체·보안 검증을 통과하면 커스텀 보이스 생성이 완료됩니다.
 
 ---
 
