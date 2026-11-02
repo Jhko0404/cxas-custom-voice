@@ -371,24 +371,3 @@ curl -s -X PATCH \
 ```
 
 ---
-
-## 8. 부록 B: 자주 묻는 질문 및 에러 해결 가이드 (Troubleshooting & FAQ)
-
-| 증상 및 에러 메시지 | 원인 분석 | 해결 방법 |
-| :--- | :--- | :--- |
-| **`Voice mismatch detected. The speaker in the consent audio does not match the speaker in the voice sample.`** | 동의서 오디오(`Consent audio`)와 샘플 오디오(`Voice sample`)의 화자가 다르거나, 서로 다른 마이크·공간·볼륨으로 녹음되어 성문 임베딩이 불일치함 | 반드시 **동일한 화자가 한 자리에서 같은 마이크와 같은 거리(15~30cm)를 유지하며 두 파일을 연속으로 녹음**하여 다시 업로드하세요. |
-| **`INVALID_ARGUMENT: Consent flow failed` 또는 동의서 문구 검증 실패** | • 동의서 문구를 읽을 때 단어를 바꿨거나 앞뒤에 인사말을 붙여 STT 단어 오류율(WER)이 15%를 초과함<br/>• 모델/리전 설정과 다른 동의 문구를 사용한 경우 | 1. [2.1절의 공식 동의 문구](#21-파일--음성-동의서-consent-audio--812초-필수-낭독-문구)를 앞뒤 인사말 없이 정확히 낭독했는지 확인하세요.<br/>2. 만약 `Chirp3-HD` 모델이거나 `us` 리전 설정 영향인 경우, [2.1절 참고란](#21-파일--음성-동의서-consent-audio--812초-필수-낭독-문구)에 안내된 Chirp 3 동의 문구 또는 영문 동의 문구 파일로 업로드해 보세요. |
-| **콘솔의 `Voice` 설정에서 `Custom` 토글이 비활성화(클릭 불가)되어 있음** | 현재 에이전트에 설정된 모델(예: `gemini-2.5-flash-001` 또는 `gemini-3.5-flash` 등 텍스트 전용 모델)이 보이스 클로닝을 지원하지 않음 | [Step 3](#3-step-3-cx-agent-studio-웹-콘솔에서-대상-언어-및-지원-모델-설정하기)을 참고하여 에이전트 모델을 `Composite V1/V2` 또는 Native Audio 모델로 변경하거나, 언어별 TTS 모델이 `gemini-3.1-flash-tts-preview` / `Chirp3-HD`인지 확인하세요. |
-| **외부 TTS나 합성 오디오를 올렸더니 업로드가 거부됨** | DeepMind SynthID / SSD 기반의 합성 음성 탐지기가 AI 생성 오디오임을 감지하여 차단함 | Custom Voice UI는 **실제 사람의 육성 + 본인 음성 동의서** 전용입니다. 반드시 실제 성우 또는 상담원의 육성으로 녹음한 파일을 업로드하세요. |
-| **오디오 업로드 시 무음(Silence) 비율 초과 또는 길이 오류 발생** | 샘플 오디오 내 무음 구간이 전체의 20%를 초과했거나, 파일 길이가 20~60초 범위를 벗어남 | 대본을 읽을 때 문장 사이 쉼(Pause)을 1초 이내로 자연스럽게 유지하고, 녹음 시작 전과 끝난 후의 빈 무음 구간을 잘라내어 30~40초 분량으로 업로드하세요. |
-| **`LOW_AUDIO_LEVEL` 경고가 뜨거나 합성된 음성에 화이트 노이즈가 섞임** | 녹음 시 마이크 입력 볼륨이 너무 작아(`-20 dB` 이하) 서버 정규화 과정에서 배경 노이즈가 함께 증폭됨 | 마이크 거리를 입에서 15~30cm로 조정하고, 녹음 피크 레벨이 **`-12 dB ~ -6 dB`** 사이에 오도록 마이크 입력 게인을 높여 다시 녹음하세요. |
-| **커스텀 보이스를 생성했는데 시뮬레이터에서 기본 내장 음성(Built-in)으로 말함** | `Custom voices` 목록에만 보이스를 생성해 두고, 정작 대상 언어의 Voice 설정을 `Custom`으로 변경해 매핑하지 않음 | [Step 5 (5.1절)](#51-대상-언어에-생성한-custom-voice-연결하기)을 따라 `Settings > Basic > Behavior > Voice` 테이블에서 대상 언어 행을 클릭한 뒤, **`Custom`** 토글을 선택하고 생성한 보이스 이름을 지정해 저장하세요. |
-
----
-
-## 🔗 공식 참고 문서 (Official References)
-- [CX Agent Studio — Voice and speech 공식 가이드](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/voice)
-- [Gemini Enterprise Agent Platform — Replicate voices (언어별 공식 동의 문구 레퍼런스)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication#consent-statements)
-- [Cloud Text-to-Speech — Chirp 3: Instant Custom Voice 공식 가이드](https://docs.cloud.google.com/text-to-speech/docs/chirp3-instant-custom-voice#available_languages)
-- [CX Agent Studio — Agent application settings 설정 가이드](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/settings#application)
-- [CX Agent Studio REST API — `App.AudioProcessingConfig` & `CustomVoiceSample` 레퍼런스](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rest/v1/projects.locations.apps#App.AudioProcessingConfig)
