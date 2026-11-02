@@ -8,25 +8,12 @@
 
 ## 📑 목차 (Table of Contents)
 
-- [Custom Voice 온보딩 전체 흐름 한눈에 보기](#-custom-voice-온보딩-전체-흐름-한눈에-보기)
 1. [Step 1: 사전 준비 — 필수 오디오 2종 규격 및 3대 자동 검증 기준 이해하기](#1-step-1-사전-준비--필수-오디오-2종-규격-및-3대-자동-검증-기준-이해하기)
-   - [1.1. 제출해야 하는 오디오 파일 2종 요약](#11-제출해야-하는-오디오-파일-2종-요약)
-   - [1.2. 저장 시 수행되는 3대 실시간 생체·보안 검증 기준](#12-저장-시-수행되는-3대-실시간-생체보안-검증-기준)
 2. [Step 2: 오디오 2종 녹음하기 (동의서 문구 + 표준 샘플 대본)](#2-step-2-오디오-2종-녹음하기-동의서-문구--표준-샘플-대본)
-   - [2.1. 파일 ①: 음성 동의서 (`Consent audio` — 8~12초 필수 낭독 문구)](#21-파일--음성-동의서-consent-audio--812초-필수-낭독-문구)
-   - [2.2. 파일 ②: 참조 음성 샘플 (`Voice sample` — 20~60초 표준 대본 3선)](#22-파일--참조-음성-샘플-voice-sample--2060초-표준-대본-3선)
 3. [Step 3: CX Agent Studio 웹 콘솔에서 대상 언어 및 지원 모델 설정하기](#3-step-3-cx-agent-studio-웹-콘솔에서-대상-언어-및-지원-모델-설정하기)
 4. [Step 4: `Create custom voice` 화면에서 Custom Voice 생성하기](#4-step-4-create-custom-voice-화면에서-custom-voice-생성하기)
-   - [4.1. 억양 및 발화 스타일 지시문(`Voice instruction`) 설정하기](#41-억양-및-발화-스타일-지시문voice-instruction-설정하기)
-   - [4.2. 산업별·상황별 `Voice instruction` 프롬프트 템플릿](#42-산업별상황별-voice-instruction-프롬프트-템플릿)
 5. [Step 5: 대상 언어에 Custom Voice 매핑 및 통화 행동 최적화하기](#5-step-5-대상-언어에-custom-voice-매핑-및-통화-행동-최적화하기)
-   - [5.1. 대상 언어에 생성한 Custom Voice 연결하기](#51-대상-언어에-생성한-custom-voice-연결하기)
-   - [5.2. 발화 속도(Tempo), 배경 효과음, 끼어들기(Barge-in), 묵음 대기 설정](#52-발화-속도tempo-배경-효과음-끼어들기barge-in-묵음-대기-설정)
 6. [Step 6: 시뮬레이터(Simulator) 실시간 음성 테스트 및 검증](#6-step-6-시뮬레이터simulator-실시간-음성-테스트-및-검증)
-7. [부록 A: CES v1 REST API를 활용한 Custom Voice 자동화 및 운영 주의사항](#7-부록-a-ces-v1-rest-api를-활용한-custom-voice-자동화-및-운영-주의사항)
-   - [A.1. 아키텍처별 내부 동작 및 5일 주기 자동 갱신(Re-mint) 주의사항](#a1-아키텍처별-내부-동작-및-5일-주기-자동-갱신re-mint-주의사항)
-   - [A.2. Cloud Storage(GCS) 권한 부여 및 REST API (`GET` / `PATCH`) 예제](#a2-cloud-storagegcs-권한-부여-및-rest-api-get--patch-예제)
-8. [부록 B: 자주 묻는 질문 및 에러 해결 가이드 (Troubleshooting & FAQ)](#8-부록-b-자주-묻는-질문-및-에러-해결-가이드-troubleshooting--faq)
 
 ---
 
